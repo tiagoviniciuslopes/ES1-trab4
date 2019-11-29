@@ -2,6 +2,8 @@ package unioeste.geral.estoque.bo;
 
 import java.io.Serializable;
 
+import unioeste.geral.estoque.exception.EstoqueException;
+
 public class NotaCompra extends Nota implements Serializable{
 
 	/**
@@ -31,6 +33,10 @@ public class NotaCompra extends Nota implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public void validaObjeto() throws EstoqueException{
+		if(fornecedor == null || produto == null) throw new EstoqueException("Nota de compra invalida");
 	}
 
 }

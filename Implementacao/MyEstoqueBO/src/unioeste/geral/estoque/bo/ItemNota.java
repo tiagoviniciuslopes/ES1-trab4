@@ -2,6 +2,8 @@ package unioeste.geral.estoque.bo;
 
 import java.io.Serializable;
 
+import unioeste.geral.estoque.exception.EstoqueException;
+
 public abstract class ItemNota implements Serializable{
 
 	/**
@@ -40,6 +42,10 @@ public abstract class ItemNota implements Serializable{
 	public void setPrecoTotal(float precoTotal) {
 		this.precoTotal = precoTotal;
 	}
+	
+	public void calcularPrecoTotal() {
+		this.precoTotal = precoUnitario * quantidade;
+	}
 
 	public Produto[] getProduto() {
 		return produto;
@@ -52,5 +58,12 @@ public abstract class ItemNota implements Serializable{
 	public static long getSerialversionuid() {
 		return serialVersionUID;
 	}
+	
+	public void validaObjeto() throws EstoqueException {
+		
+		if(quantidade <= 0 || precoUnitario <= 0 || produto == null) throw new EstoqueException("Item invalido");
+	}
+	
+	
 
 }

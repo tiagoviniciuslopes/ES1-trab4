@@ -61,7 +61,7 @@ public class Endereco implements Serializable{
 		this.cidade = cidade;
 	}
 	
-	public void validaObjeto() throws Exception{
+	public void validaObjeto() throws EnderecoException{
 		if(cep.length() != 8) {
 			throw new EnderecoException("CEP invalido");
 		}

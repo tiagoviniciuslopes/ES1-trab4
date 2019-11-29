@@ -2,6 +2,8 @@ package unioeste.geral.estoque.bo;
 
 import java.io.Serializable;
 
+import unioeste.geral.estoque.exception.EstoqueException;
+
 public class Cliente implements Serializable{
 
 	/**
@@ -31,6 +33,10 @@ public class Cliente implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public void validaObjeto() throws EstoqueException {
+		if (clienteEmpresa == null & clientePessoa == null) throw new EstoqueException("Cliente invalido");
 	}
 
 }

@@ -1,6 +1,8 @@
 package unioeste.geral.common.bo;
 import java.io.Serializable;
 
+import unioeste.geral.common.exception.NegocioException;
+
 public abstract class Pessoa implements Serializable{
 
 	/**
@@ -86,6 +88,12 @@ public abstract class Pessoa implements Serializable{
 
 	public void setEnderecoEspecifico(EnderecoEspecifico enderecoEspecifico) {
 		this.enderecoEspecifico = enderecoEspecifico;
+	}
+	
+	public void validaObjeto() throws NegocioException{
+		if(getNomeCompleto().length() < 2) {
+			throw new NegocioException("Nome invalido");
+		}
 	}
 
 }
