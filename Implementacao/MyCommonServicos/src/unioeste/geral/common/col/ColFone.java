@@ -26,4 +26,11 @@ public class ColFone {
 		
 		return dao.inserirFoneCliente(f, pessoa, connector);
 	}
+
+	public ArrayList<Fone> obterFoneFornecedor(Pessoa p, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		DAOFone dao = new DAOFone();
+		
+		return dao.obterFoneFornecedor(p, connector);
+	}
 }

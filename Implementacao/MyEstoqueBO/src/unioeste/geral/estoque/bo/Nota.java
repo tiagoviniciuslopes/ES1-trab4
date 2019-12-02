@@ -41,7 +41,7 @@ public abstract class Nota implements Serializable{
 		SimpleDateFormat stringify = new SimpleDateFormat("dd/MM/yyyy");
 		return stringify.format(dataNota);
 	}
-	public boolean setDataExpedicao(String data) {
+	public boolean setDataNota(String data) {
 		String format = "dd/MM/yyyy";
 		if (data.indexOf("-") != -1) {
 			format = "yyyy-MM-dd";

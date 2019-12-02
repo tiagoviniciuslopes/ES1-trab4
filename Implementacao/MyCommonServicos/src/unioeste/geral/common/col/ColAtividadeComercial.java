@@ -38,5 +38,18 @@ public class ColAtividadeComercial {
 		
 		return dao.inserirAtividadeComercial(ac, pessoa, connector);
 	}
+
+	public ArrayList<AtividadeComercial> obterAtividadeComercialPorFornecedor(Pessoa pessoa, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		DAOAtividadeComercial dao = new DAOAtividadeComercial();
+		
+		ArrayList<AtividadeComercial> ac = dao.obterAtividadeComercialPorFornecedor(pessoa, connector);
+		
+		for(AtividadeComercial atividade : ac ) {
+			atividade = dao.obterAtividadeComercialPorId(atividade, connector);
+		}
+		
+		return ac;
+	}
 	
 }

@@ -54,6 +54,14 @@ public class SQLConnector {
 		statement.close();
 		connection.close();
 	}
+	
+	public void startTransaction() throws Exception{
+		executeUpdate("START TRANSACTION;");
+	}
+	
+	public void commit() throws Exception{
+		executeUpdate("COMMIT;");
+	}
 
 	public static String queryString(String src) {
 		if (src == null) {

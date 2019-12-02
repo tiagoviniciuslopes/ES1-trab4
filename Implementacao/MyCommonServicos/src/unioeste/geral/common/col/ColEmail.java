@@ -26,5 +26,12 @@ public class ColEmail {
 		
 		return dao.inserirEmailCliente(e, pessoa, connector);
 	}
+
+	public ArrayList<Email> obterEmailFornecedor(Pessoa p, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		DAOEmail dao = new DAOEmail();
+		
+		return dao.obterEmailFornecedor(p, connector);
+	}
 	
 }

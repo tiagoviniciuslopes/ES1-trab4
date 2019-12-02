@@ -51,5 +51,24 @@ public class DAOEmail {
 		
 		return e;
 	}
+
+	public ArrayList<Email> obterEmailFornecedor(Pessoa p, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		ArrayList<Email> email = new ArrayList<Email>();
+		
+		String query = "SELECT * FROM EmailFornecedor WHERE idFornecedor = " + p.getIdPessoa() + ";";
+		ResultSet result = connector.executeQuery(query);
+		
+		while (result.next()) {
+			Email e = new Email();
+			
+			e.setDescricao(result.getString("descricaoEmail"));
+			e.setIdEmail(result.getInt("idEmailFornecedor"));
+			
+			email.add(e);
+		}
+		
+		return email;
+	}
 	
 }

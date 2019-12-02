@@ -17,7 +17,7 @@ public abstract class ItemNota implements Serializable{
 
 	private float precoTotal;
 
-	private Produto[] produto;
+	private Produto produto;
 
 	public int getQuantidade() {
 		return quantidade;
@@ -47,11 +47,11 @@ public abstract class ItemNota implements Serializable{
 		this.precoTotal = precoUnitario * quantidade;
 	}
 
-	public Produto[] getProduto() {
+	public Produto getProduto() {
 		return produto;
 	}
 
-	public void setProduto(Produto[] produto) {
+	public void setProduto(Produto produto) {
 		this.produto = produto;
 	}
 

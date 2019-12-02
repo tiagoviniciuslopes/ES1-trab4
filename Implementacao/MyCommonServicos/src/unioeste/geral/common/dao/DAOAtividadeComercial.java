@@ -60,4 +60,22 @@ public class DAOAtividadeComercial {
 		
 		return ac;
 	}
+
+	public ArrayList<AtividadeComercial> obterAtividadeComercialPorFornecedor(Pessoa pessoa, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		ArrayList<AtividadeComercial> atividadeComercial = new ArrayList<AtividadeComercial>();
+		
+		String query = "SELECT * FROM AtividadeComercial_Fornecedor WHERE idFornecedor = " + pessoa.getIdPessoa() + ";";
+		ResultSet result = connector.executeQuery(query);
+		
+		while (result.next()) {
+			AtividadeComercial ac = new AtividadeComercial();
+			
+			ac.setIdAtividadeComercial(result.getInt("idAtividadeComercial"));
+			
+			atividadeComercial.add(ac);
+		}
+		
+		return atividadeComercial;
+	}
 }

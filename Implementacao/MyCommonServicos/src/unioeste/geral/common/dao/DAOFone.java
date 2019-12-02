@@ -78,5 +78,36 @@ public class DAOFone {
 		
 		return f;
 	}
+
+	public ArrayList<Fone> obterFoneFornecedor(Pessoa p, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		ArrayList<Fone> fone = new ArrayList<Fone>();
+		
+		String query = "SELECT * FROM FoneFornecedor WHERE idFornecedor = " + p.getIdPessoa() + ";";
+		ResultSet result = connector.executeQuery(query);
+		
+		while (result.next()) {
+			Fone f = new Fone();
+			
+			f.setNumeroTelefone(result.getString("numeroFone"));
+			f.setIdFone(result.getInt("idFoneFornecedor"));
+			
+			DDD ddd = new DDD();
+			DDI ddi = new DDI();
+			TipoFone tf = new TipoFone();
+			
+			ddd.setIdDDD(result.getInt("idDDD"));
+			ddi.setIdDDI(result.getInt("idDDI"));
+			tf.setIdTipoFone(result.getInt("idTipoFone"));
+			
+			f.setDdd(ddd);
+			f.setDdi(ddi);
+			f.setTipoFone(tf);
+			
+			fone.add(f);
+		}
+		
+		return fone;
+	}
 	
 }

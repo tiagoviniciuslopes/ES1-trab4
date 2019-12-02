@@ -2,6 +2,8 @@ package unioeste.geral.estoque.bo;
 
 import java.io.Serializable;
 
+import unioeste.geral.estoque.exception.EstoqueException;
+
 public class Produto implements Serializable{
 
 	/**
@@ -81,6 +83,10 @@ public class Produto implements Serializable{
 
 	public static long getSerialversionuid() {
 		return serialVersionUID;
+	}
+	
+	public void validaObjeto() throws EstoqueException{
+		if( idProduto <= 0 || fornecedor == null) throw new EstoqueException("Erro produto invalido");
 	}
 
 }
