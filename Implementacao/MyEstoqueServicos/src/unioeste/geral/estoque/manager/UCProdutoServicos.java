@@ -1,5 +1,7 @@
 package unioeste.geral.estoque.manager;
 
+import java.util.ArrayList;
+
 import unioeste.apoio.BD.SQLConnector;
 import unioeste.geral.estoque.bo.Produto;
 import unioeste.geral.estoque.col.ColProduto;
@@ -16,6 +18,16 @@ public class UCProdutoServicos {
 		
 		connector.close();
 		return p;
+	}
+	
+	public ArrayList<Produto> consultarTodosProdutos() throws Exception{
+		ColProduto colProduto = new ColProduto();
+		SQLConnector connector = new SQLConnector();
+		
+		ArrayList<Produto> produtos = colProduto.consultarTodosProdutos(connector);
+		
+		connector.close();
+		return produtos;
 	}
 	
 }

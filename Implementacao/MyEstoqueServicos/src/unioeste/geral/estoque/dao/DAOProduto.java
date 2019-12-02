@@ -1,6 +1,7 @@
 package unioeste.geral.estoque.dao;
 
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
 import unioeste.geral.estoque.bo.Fornecedor;
@@ -36,6 +37,30 @@ public class DAOProduto {
 		p.setQuantidadeEstoque(result.getInt("quantidadeEstoque"));
 		
 		return p;
+	}
+
+	public ArrayList<Produto> consultarTodosProdutos(SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		ArrayList<Produto> produtos = new ArrayList<Produto>();
+		
+		String query = "SELECT * FROM Produto;";
+		ResultSet result = connector.executeQuery(query);
+		
+		while(result.next()) {
+			Produto p = new Produto();
+			p.setCodBarras(result.getString("codBarras"));
+			Fornecedor f = new Fornecedor();
+			f.setIdPessoa(result.getInt("idFornecedor"));
+			p.setFornecedor(f);
+			p.setNomeProduto(result.getString("nomeProduto"));
+			p.setPrecoCustoAtual(result.getFloat("precoCustoAtual"));
+			p.setPrecoVendaAtual(result.getFloat("precoVendaAtual"));
+			p.setQuantidadeEstoque(result.getInt("quantidadeEstoque"));
+			
+			produtos.add(p);
+		}
+		
+		return produtos;
 	}
 
 }
