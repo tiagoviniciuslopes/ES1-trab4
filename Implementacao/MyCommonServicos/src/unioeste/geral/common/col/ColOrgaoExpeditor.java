@@ -1,10 +1,10 @@
-package unioeste.gera.common.col;
+package unioeste.geral.common.col;
 
 import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
-import unioeste.gera.common.dao.DAOOrgaoExpeditor;
 import unioeste.geral.common.bo.OrgaoExpeditor;
+import unioeste.geral.common.dao.DAOOrgaoExpeditor;
 
 public class ColOrgaoExpeditor {
 

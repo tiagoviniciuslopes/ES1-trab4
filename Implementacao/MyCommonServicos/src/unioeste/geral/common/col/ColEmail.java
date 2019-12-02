@@ -1,11 +1,11 @@
-package unioeste.gera.common.col;
+package unioeste.geral.common.col;
 
 import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
-import unioeste.gera.common.dao.DAOEmail;
 import unioeste.geral.common.bo.Email;
 import unioeste.geral.common.bo.Pessoa;
+import unioeste.geral.common.dao.DAOEmail;
 
 public class ColEmail {
 

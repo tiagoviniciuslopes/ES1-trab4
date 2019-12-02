@@ -1,10 +1,10 @@
-package unioeste.gera.common.col;
+package unioeste.geral.common.col;
 
 import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
-import unioeste.gera.common.dao.DAODDD;
 import unioeste.geral.common.bo.DDD;
+import unioeste.geral.common.dao.DAODDD;
 
 public class ColDDD {
 

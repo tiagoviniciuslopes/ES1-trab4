@@ -1,10 +1,10 @@
-package unioeste.gera.common.col;
+package unioeste.geral.common.col;
 
 import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
-import unioeste.gera.common.dao.DAOSexo;
 import unioeste.geral.common.bo.Sexo;
+import unioeste.geral.common.dao.DAOSexo;
 
 public class ColSexo {
 

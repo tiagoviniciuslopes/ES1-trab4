@@ -1,11 +1,11 @@
-package unioeste.gera.common.col;
+package unioeste.geral.common.col;
 
 import java.util.ArrayList;
 
 import unioeste.apoio.BD.SQLConnector;
-import unioeste.gera.common.dao.DAOAtividadeComercial;
 import unioeste.geral.common.bo.AtividadeComercial;
 import unioeste.geral.common.bo.Pessoa;
+import unioeste.geral.common.dao.DAOAtividadeComercial;
 
 public class ColAtividadeComercial {
 

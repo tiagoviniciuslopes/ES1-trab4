@@ -1,4 +1,4 @@
-package unioeste.gera.common.dao;
+package unioeste.geral.common.dao;
 
 import java.sql.ResultSet;
 import java.util.ArrayList;
