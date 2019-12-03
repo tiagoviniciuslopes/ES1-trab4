@@ -57,5 +57,43 @@ public class UCFornecedorServicos {
 		connector.close();
 		return f;
 	}
+	
+	public Fornecedor consultarFornecedorPorId(Fornecedor f) throws Exception{
+		// TODO Auto-generated method stub
+		
+		SQLConnector connector = new SQLConnector();
+		ColFornecedor colFornecedor = new ColFornecedor();
+		UCEnderecoGeralServicos ucEndereco = new UCEnderecoGeralServicos();
+		ColAtividadeComercial colAtividadeComercial = new ColAtividadeComercial();
+		ColEmail colEmail = new ColEmail();
+		ColFone colFone = new ColFone();
+		
+		f = colFornecedor.consultarFornecedorPorId(f, connector);
+		Endereco e = ucEndereco.obterEnderecoPorId(f.getEnderecoEspecifico().getEndereco());
+		EnderecoEspecifico ee = f.getEnderecoEspecifico();
+		ee.setEndereco(e);
+		f.setEnderecoEspecifico(ee);
+		
+		ArrayList<Email> emails = colEmail.obterEmailFornecedor(f, connector);
+		f.setEmail(emails.toArray(new Email[emails.size()]));
+		
+		ArrayList<Fone> fones = colFone.obterFoneFornecedor(f, connector);
+		ColDDD colDDD = new ColDDD();
+		ColDDI colDDI = new ColDDI();
+		ColTipoFone colTipoFone = new ColTipoFone();
+		for(Fone fone : fones) {
+			fone.setDdd(colDDD.obterDDDPorId(fone.getDdd(), connector));
+			fone.setDdi(colDDI.obterDDIPorId(fone.getDdi(), connector));
+			fone.setTipoFone(colTipoFone.obterTipoFonePorId(fone.getTipoFone(), connector));
+		}
+		
+		f.setFone(fones.toArray(new Fone[fones.size()]));
+		
+		ArrayList<AtividadeComercial> atividades = colAtividadeComercial.obterAtividadeComercialPorFornecedor(f, connector);
+		f.setAtividadeComercial(atividades.toArray(new AtividadeComercial[atividades.size()]));
+		
+		connector.close();
+		return f;
+	}
 
 }

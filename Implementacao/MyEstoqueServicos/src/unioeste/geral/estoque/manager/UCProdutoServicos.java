@@ -14,7 +14,7 @@ public class UCProdutoServicos {
 		SQLConnector connector = new SQLConnector();
 		
 		p = colProduto.consultarProduto(p, connector);
-		p.setFornecedor(ucFornecedorServico.consultarFornecedor(p.getFornecedor()));
+		p.setFornecedor(ucFornecedorServico.consultarFornecedorPorId(p.getFornecedor()));
 		
 		connector.close();
 		return p;

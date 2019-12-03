@@ -12,5 +12,12 @@ public class ColFornecedor {
 		
 		return dao.consultarFornecedorPorCnpj(f, connector);
 	}
+	
+	public Fornecedor consultarFornecedorPorId(Fornecedor f, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		DAOFornecedor dao = new DAOFornecedor();
+		
+		return dao.consultarFornecedorPorId(f, connector);
+	}
 
 }

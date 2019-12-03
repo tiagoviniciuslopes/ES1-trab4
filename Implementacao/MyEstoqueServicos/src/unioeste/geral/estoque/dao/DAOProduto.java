@@ -48,6 +48,7 @@ public class DAOProduto {
 		
 		while(result.next()) {
 			Produto p = new Produto();
+			p.setIdProduto(result.getInt("idProduto"));
 			p.setCodBarras(result.getString("codBarras"));
 			Fornecedor f = new Fornecedor();
 			f.setIdPessoa(result.getInt("idFornecedor"));

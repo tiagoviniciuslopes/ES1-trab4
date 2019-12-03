@@ -34,5 +34,30 @@ public class DAOFornecedor {
 		
 		return f;
 	}
+	
+	public Fornecedor consultarFornecedorPorId(Fornecedor f, SQLConnector connector) throws Exception{
+		// TODO Auto-generated method stub
+		
+		String query = "SELECT * FROM Fornecedor WHERE idFornecedor = '" + f.getIdPessoa() + "';";
+		ResultSet result = connector.executeQuery(query);
+		result.next();
+		
+		CNPJ cnpj = new CNPJ();
+		cnpj.setNumeroDoc(result.getString("cnpj"));
+		f.setCnpj(cnpj);
+		EnderecoEspecifico enderecoEspecifico = new EnderecoEspecifico();
+		enderecoEspecifico.setNumero(result.getInt("numero"));
+		enderecoEspecifico.setComplemento(result.getString("complemento"));
+		Endereco endereco = new Endereco();
+		endereco.setIdEndereco(result.getInt("idEndereco"));
+		enderecoEspecifico.setEndereco(endereco);
+		f.setEnderecoEspecifico(enderecoEspecifico);
+		f.setIdPessoa(result.getInt("idFornecedor"));
+		f.setNomeAbreviado(result.getString("nomeAbreviadoFornecedor"));
+		f.setNomeCompleto(result.getString("nomeCompletoFornecedor"));
+		
+		
+		return f;
+	}
 
 }
