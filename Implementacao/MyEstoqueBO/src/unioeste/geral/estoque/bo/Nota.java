@@ -21,7 +21,7 @@ public abstract class Nota implements Serializable{
 
 	private float valorLiquido;
 
-	private ItemNota[] itemNota;
+	protected ItemNota[] itemNota;
 
 	public int getIdNota() {
 		return idNota;

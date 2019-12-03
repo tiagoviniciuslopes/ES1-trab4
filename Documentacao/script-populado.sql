@@ -23,7 +23,7 @@ DROP TABLE IF EXISTS `atividadecomercial`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `atividadecomercial` (
-  `idAtividadeComercial` int(11) NOT NULL,
+  `idAtividadeComercial` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoAtividadeComercial` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idAtividadeComercial`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -101,7 +101,7 @@ DROP TABLE IF EXISTS `bairro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `bairro` (
-  `idBairro` int(11) NOT NULL,
+  `idBairro` int(11) NOT NULL AUTO_INCREMENT,
   `nomeBairro` varchar(100) NOT NULL,
   PRIMARY KEY (`idBairro`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -125,7 +125,7 @@ DROP TABLE IF EXISTS `cidade`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cidade` (
-  `idCidade` int(11) NOT NULL,
+  `idCidade` int(11) NOT NULL AUTO_INCREMENT,
   `nomeCidade` varchar(100) NOT NULL,
   `idUF` int(11) DEFAULT NULL,
   PRIMARY KEY (`idCidade`),
@@ -152,7 +152,7 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cliente` (
-  `idCliente` int(11) NOT NULL,
+  `idCliente` int(11) NOT NULL AUTO_INCREMENT,
   `primeiroNomeCliente` varchar(100) NOT NULL,
   `nomeMeioCliente` varchar(100) DEFAULT NULL,
   `ultimoNomeCliente` varchar(100) DEFAULT NULL,
@@ -229,7 +229,7 @@ DROP TABLE IF EXISTS `ddd`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ddd` (
-  `idDDD` int(11) NOT NULL,
+  `idDDD` int(11) NOT NULL AUTO_INCREMENT,
   `numeroDDD` int(11) NOT NULL,
   PRIMARY KEY (`idDDD`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -253,7 +253,7 @@ DROP TABLE IF EXISTS `ddi`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `ddi` (
-  `idDDI` int(11) NOT NULL,
+  `idDDI` int(11) NOT NULL AUTO_INCREMENT,
   `numeroDDI` int(11) NOT NULL,
   PRIMARY KEY (`idDDI`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -277,7 +277,7 @@ DROP TABLE IF EXISTS `emailcliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `emailcliente` (
-  `idEmailCliente` int(11) NOT NULL,
+  `idEmailCliente` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoEmail` varchar(100) NOT NULL,
   `idCliente` int(11) DEFAULT NULL,
   PRIMARY KEY (`idEmailCliente`),
@@ -304,7 +304,7 @@ DROP TABLE IF EXISTS `emailfornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `emailfornecedor` (
-  `idEmailFornecedor` int(11) NOT NULL,
+  `idEmailFornecedor` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoEmail` varchar(100) DEFAULT NULL,
   `idFornecedor` int(11) DEFAULT NULL,
   PRIMARY KEY (`idEmailFornecedor`),
@@ -331,7 +331,7 @@ DROP TABLE IF EXISTS `endereco`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `endereco` (
-  `idEndereco` int(11) NOT NULL,
+  `idEndereco` int(11) NOT NULL AUTO_INCREMENT,
   `cep` varchar(100) NOT NULL,
   `idBairro` int(11) DEFAULT NULL,
   `idCidade` int(11) DEFAULT NULL,
@@ -364,7 +364,7 @@ DROP TABLE IF EXISTS `fonecliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fonecliente` (
-  `idFoneCliente` int(11) NOT NULL,
+  `idFoneCliente` int(11) NOT NULL AUTO_INCREMENT,
   `numeroFone` varchar(100) NOT NULL,
   `idCliente` int(11) DEFAULT NULL,
   `idDDI` int(11) DEFAULT NULL,
@@ -400,7 +400,7 @@ DROP TABLE IF EXISTS `fonefornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fonefornecedor` (
-  `idFoneFornecedor` int(11) NOT NULL,
+  `idFoneFornecedor` int(11) NOT NULL AUTO_INCREMENT,
   `numeroFone` varchar(100) DEFAULT NULL,
   `idDDI` int(11) DEFAULT NULL,
   `idDDD` int(11) DEFAULT NULL,
@@ -436,7 +436,7 @@ DROP TABLE IF EXISTS `fornecedor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `fornecedor` (
-  `idFornecedor` int(11) NOT NULL,
+  `idFornecedor` int(11) NOT NULL AUTO_INCREMENT,
   `nomeAbreviadoFornecedor` varchar(100) DEFAULT NULL,
   `nomeCompletoFornecedor` varchar(100) DEFAULT NULL,
   `cnpj` varchar(100) DEFAULT NULL,
@@ -524,7 +524,7 @@ DROP TABLE IF EXISTS `logradouro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `logradouro` (
-  `idLogradouro` int(11) NOT NULL,
+  `idLogradouro` int(11) NOT NULL AUTO_INCREMENT,
   `nomeLogradouro` varchar(100) NOT NULL,
   `idTipoLogradouro` int(11) DEFAULT NULL,
   PRIMARY KEY (`idLogradouro`),
@@ -551,7 +551,7 @@ DROP TABLE IF EXISTS `notacompra`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notacompra` (
-  `idNotaCompra` int(11) NOT NULL,
+  `idNotaCompra` int(11) NOT NULL AUTO_INCREMENT,
   `dataNota` date DEFAULT NULL,
   `totalNota` float DEFAULT NULL,
   `descontoTotal` float DEFAULT NULL,
@@ -569,7 +569,7 @@ CREATE TABLE `notacompra` (
 
 LOCK TABLES `notacompra` WRITE;
 /*!40000 ALTER TABLE `notacompra` DISABLE KEYS */;
-INSERT INTO `notacompra` VALUES (1,'2019-09-06',3336430,289870,3046560,1),(2,'2019-11-13',5835290,2583510,8418800,2);
+INSERT INTO `notacompra` VALUES (1,'2019-09-06',3336430,289870,3046560,1),(2,'2019-11-13',8418800,2583510,5835290,2);
 /*!40000 ALTER TABLE `notacompra` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -581,7 +581,7 @@ DROP TABLE IF EXISTS `notavenda`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `notavenda` (
-  `idNotaVenda` int(11) NOT NULL,
+  `idNotaVenda` int(11) NOT NULL AUTO_INCREMENT,
   `dataNota` date DEFAULT NULL,
   `totalNota` float DEFAULT NULL,
   `descontoTotal` float DEFAULT NULL,
@@ -610,7 +610,7 @@ DROP TABLE IF EXISTS `orgaoexpeditor`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `orgaoexpeditor` (
-  `idOrgaoExpeditor` int(11) NOT NULL,
+  `idOrgaoExpeditor` int(11) NOT NULL AUTO_INCREMENT,
   `nomeOrgaoExpeditor` varchar(100) NOT NULL,
   `idUF` int(11) DEFAULT NULL,
   PRIMARY KEY (`idOrgaoExpeditor`),
@@ -637,7 +637,7 @@ DROP TABLE IF EXISTS `pais`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `pais` (
-  `idPais` int(11) NOT NULL,
+  `idPais` int(11) NOT NULL AUTO_INCREMENT,
   `nomePais` varchar(100) NOT NULL,
   PRIMARY KEY (`idPais`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
@@ -661,7 +661,7 @@ DROP TABLE IF EXISTS `produto`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `produto` (
-  `idProduto` int(11) NOT NULL,
+  `idProduto` int(11) NOT NULL AUTO_INCREMENT,
   `precoCustoAtual` float DEFAULT NULL,
   `quantidadeEstoque` int(11) DEFAULT NULL,
   `nomeProduto` varchar(100) DEFAULT NULL,
@@ -692,7 +692,7 @@ DROP TABLE IF EXISTS `sexo`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `sexo` (
-  `idSexo` int(11) NOT NULL,
+  `idSexo` int(11) NOT NULL AUTO_INCREMENT,
   `descricaoSexo` varchar(100) NOT NULL,
   `siglaSexo` varchar(100) NOT NULL,
   PRIMARY KEY (`idSexo`)
@@ -717,7 +717,7 @@ DROP TABLE IF EXISTS `tipofone`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipofone` (
-  `idTipoFone` int(11) NOT NULL,
+  `idTipoFone` int(11) NOT NULL AUTO_INCREMENT,
   `siglaTipoFone` varchar(100) NOT NULL,
   `descricaoTipoFone` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`idTipoFone`)
@@ -742,7 +742,7 @@ DROP TABLE IF EXISTS `tipologradouro`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tipologradouro` (
-  `idTipoLogradouro` int(11) NOT NULL,
+  `idTipoLogradouro` int(11) NOT NULL AUTO_INCREMENT,
   `siglaTipo` varchar(100) DEFAULT NULL,
   `nomeTIpo` varchar(100) NOT NULL,
   PRIMARY KEY (`idTipoLogradouro`)
@@ -767,7 +767,7 @@ DROP TABLE IF EXISTS `uf`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `uf` (
-  `idUF` int(11) NOT NULL,
+  `idUF` int(11) NOT NULL AUTO_INCREMENT,
   `siglaUF` varchar(10) DEFAULT NULL,
   `nomeUF` varchar(100) NOT NULL,
   `idPais` int(11) DEFAULT NULL,

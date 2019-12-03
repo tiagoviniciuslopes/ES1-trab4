@@ -5,6 +5,7 @@ import unioeste.geral.estoque.bo.Fornecedor;
 import unioeste.geral.estoque.bo.ItemNota;
 import unioeste.geral.estoque.bo.NotaCompra;
 import unioeste.geral.estoque.bo.Produto;
+import unioeste.geral.estoque.col.ColFornecedor;
 import unioeste.geral.estoque.col.ColItemNota;
 import unioeste.geral.estoque.col.ColNota;
 import unioeste.geral.estoque.col.ColProduto;
@@ -15,10 +16,14 @@ public class UCNotaCompraServicos {
 		ColNota colNota = new ColNota();
 		ColItemNota colItemNota = new ColItemNota();
 		ColProduto colProduto = new ColProduto();
+		ColFornecedor colFornecedor = new ColFornecedor();
 		SQLConnector connector = new SQLConnector();		
 		
 		// START TRANSACTION
 		connector.startTransaction();
+		
+		// buscar id do fornecedor
+		notaCompra.setFornecedor(colFornecedor.consultarFornecedorPorCnpj(notaCompra.getFornecedor(), connector));
 		
 		// inserir nota compra
 		notaCompra.validaObjeto();
@@ -62,7 +67,7 @@ public class UCNotaCompraServicos {
 		
 		for(ItemNota ic : notaCompra.getItemNota()) {
 			Produto p = colProduto.consultarProduto(ic.getProduto(), connector);
-			Fornecedor f = ucFornecedorServicos.consultarFornecedor(p.getFornecedor());
+			Fornecedor f = ucFornecedorServicos.consultarFornecedorPorId(p.getFornecedor());
 			p.setFornecedor(f);
 			ic.setProduto(p);
 			
