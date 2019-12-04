@@ -13,6 +13,10 @@ public class NotaCompra extends Nota implements Serializable{
 
 	private Fornecedor fornecedor;
 	
+	public NotaCompra() {
+		super.itemNota = new ItemCompra[1000];
+	}
+	
 	public Fornecedor getFornecedor() {
 		return fornecedor;
 	}
@@ -28,5 +32,7 @@ public class NotaCompra extends Nota implements Serializable{
 	public void validaObjeto() throws EstoqueException{
 		if(fornecedor == null) throw new EstoqueException("Nota de compra invalida");
 	}
+
+	
 
 }

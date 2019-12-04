@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 import unioeste.geral.estoque.exception.EstoqueException;
 
-public abstract class ItemNota implements Serializable{
+public class ItemNota implements Serializable{
 
 	/**
 	 * 

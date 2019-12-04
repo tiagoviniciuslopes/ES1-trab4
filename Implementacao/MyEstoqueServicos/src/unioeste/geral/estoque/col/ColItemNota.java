@@ -25,7 +25,7 @@ public class ColItemNota {
 		
 		ArrayList<ItemCompra> itemCompra = dao.consultarItemNota(notaCompra, connector);
 		
-		return itemCompra.toArray(new ItemNota[itemCompra.size()]);
+		return itemCompra.toArray(new ItemCompra[itemCompra.size()]);
 	}
 
 }
