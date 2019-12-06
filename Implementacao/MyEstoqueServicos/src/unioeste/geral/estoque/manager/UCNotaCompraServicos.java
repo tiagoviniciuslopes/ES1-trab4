@@ -36,6 +36,7 @@ public class UCNotaCompraServicos {
 			
 			// aumentar estoque do produto
 			Produto p = ic.getProduto();
+			p = colProduto.consultarProduto(p, connector);
 			p.setQuantidadeEstoque(p.getQuantidadeEstoque() + ic.getQuantidade());
 			
 			// atualizar fornecedor produto

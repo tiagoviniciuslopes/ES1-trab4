@@ -1,7 +1,5 @@
 package estoque;
 
-import java.util.ArrayList;
-
 import javax.jws.WebService;
 
 import unioeste.geral.estoque.bo.Fornecedor;
@@ -53,7 +51,7 @@ public class EstoqueImplementacao implements EstoqueInterface {
 
 
 	@Override
-	public ArrayList<Produto> consultarTodosProdutos() throws Exception {
+	public Produto[] consultarTodosProdutos() throws Exception {
 		// TODO Auto-generated method stub
 		UCProdutoServicos us = new UCProdutoServicos();
 		return us.consultarTodosProdutos();

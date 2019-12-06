@@ -6,26 +6,15 @@ import java.util.ArrayList;
 import unioeste.apoio.BD.SQLConnector;
 import unioeste.geral.estoque.bo.ItemCompra;
 import unioeste.geral.estoque.bo.ItemNota;
-import unioeste.geral.estoque.bo.ItemVenda;
 import unioeste.geral.estoque.bo.NotaCompra;
 import unioeste.geral.estoque.bo.Produto;
-import unioeste.geral.estoque.exception.EstoqueException;
 
 public class DAOItemNota {
 
 	public ItemNota inserirItemNota(NotaCompra nc, ItemNota ic, SQLConnector connector) throws Exception{
 		// TODO Auto-generated method stub
 		
-		String query = "INSERT INTO ";
-		if(ic.getClass() == new ItemCompra().getClass()) {
-			query += "ItemCompra ";
-		}else if(ic.getClass() == new ItemVenda().getClass()) {
-			query += "ItemVenda ";
-		}else {
-			throw new EstoqueException("Erro: item nota não identificado");
-		}
-		
-		query += "(idNotaCompra, idProduto, quantidade, precoUnitario) "
+		String query = "INSERT INTO ItemCompra (idNotaCompra, idProduto, quantidade, precoUnitario) "
 				+ "VALUES ("+nc.getIdNota()+", "+ic.getProduto().getIdProduto()+", "+ic.getQuantidade()+", "+ic.getPrecoUnitario()+")";
 		
 		connector.executeUpdate(query);

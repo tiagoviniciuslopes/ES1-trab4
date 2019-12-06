@@ -1,7 +1,5 @@
 package unioeste.geral.estoque.testes;
 
-import java.util.ArrayList;
-
 import unioeste.geral.common.exception.NegocioException;
 import unioeste.geral.estoque.bo.Produto;
 import unioeste.geral.estoque.manager.UCProdutoServicos;
@@ -25,7 +23,7 @@ public class ProdutoServicosIntegrationTests {
 	
 	public void consultarTodosProdutosMustPass() throws Exception{
 		UCProdutoServicos uc = new UCProdutoServicos();
-		ArrayList<Produto> p = uc.consultarTodosProdutos();
+		Produto[] p = uc.consultarTodosProdutos();
 		
 		if(p == null ) throw new NegocioException("Erro: consultarTodosProdutosMustPass retornou nulo");
 	}

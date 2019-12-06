@@ -17,7 +17,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/MyEnderecoBO"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyEstoqueBO"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/WebServiceServer"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/MyBancoServicos"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyCommonServicos"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyEnderecoServicos"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyEstoqueServicos"/>

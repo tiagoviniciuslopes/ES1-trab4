@@ -1,8 +1,6 @@
 package estoque;
 
-
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.URL;
 
@@ -14,21 +12,19 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
-import unioeste.geral.estoque.bo.ItemCompra;
-import unioeste.geral.estoque.bo.ItemNota;
-import unioeste.geral.estoque.bo.NotaCompra;
+import unioeste.geral.estoque.bo.Produto;
 
 /**
- * Servlet implementation class ConsultarNota
+ * Servlet implementation class HelperRegistrarCompra
  */
-@WebServlet("/consultas/ConsultarNota")
-public class ConsultarNota extends HttpServlet {
+@WebServlet("/helpers/HelperRegistrarCompra")
+public class HelperRegistrarCompra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ConsultarNota() {
+    public HelperRegistrarCompra() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,32 +41,23 @@ public class ConsultarNota extends HttpServlet {
 	    Service ws = Service.create(url, qname);
 	    EstoqueInterface estoque = ws.getPort(qPortName,EstoqueInterface.class);
 	    
-	    NotaCompra nc = new NotaCompra();
-	    nc.setIdNota(Integer.parseInt(request.getParameter("codigo")));
-	    
+	    Produto[] produtos = null;
 	    try {
-			nc = (NotaCompra)estoque.consultarNota(nc);
-			
-			PrintWriter out = response.getWriter();
-			
-			out.print("<br><h2> ID: " + nc.getIdNota() + "</h2>");
-			out.print("<br><h2> Data nota: " + nc.getStringData() + "</h2>");
-			out.print("<br><h2> Total: " + nc.getTotalNota() + "</h2>");
-			out.print("<br><h2> Desconto: " + nc.getDescontoTotal() + "</h2>");
-			out.print("<br><h2> Total liquido: " + nc.getValorLiquido() + "</h2>");
-			out.print("<br><h2> Fornecedor: " + nc.getFornecedor().getNomeCompleto() + "</h2>");
-			out.print("<br><h2> CNPJ Fornecedor: " + nc.getFornecedor().getCnpj().getNumeroDoc() + "</h2>");
-			out.print("<br><h2> ITENS COMPRADOS: </h2>");
-			for(ItemNota ic : nc.getItemNota()) {
-				out.print("<br><h3>Produto: "+ic.getProduto().getNomeProduto()+"  |  Quantidade: "+ic.getQuantidade()+"  | Preco Unitario: "+ic.getPrecoUnitario()+"</h3>");
-			}
-			
+			produtos = estoque.consultarTodosProdutos();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    
-	    
+		
+		request.setAttribute("produtos", produtos);
+		request.getRequestDispatcher("/RegistrarCompra.jsp").forward(request, response);
+		
+		/*PrintWriter out = response.getWriter();
+		for(Produto p: produtos) {
+			out.print(p.getNomeProduto());
+		}*/
+		
 	}
 
 	/**

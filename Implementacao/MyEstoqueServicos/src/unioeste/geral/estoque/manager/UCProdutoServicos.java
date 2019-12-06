@@ -20,14 +20,14 @@ public class UCProdutoServicos {
 		return p;
 	}
 	
-	public ArrayList<Produto> consultarTodosProdutos() throws Exception{
+	public Produto[] consultarTodosProdutos() throws Exception{
 		ColProduto colProduto = new ColProduto();
 		SQLConnector connector = new SQLConnector();
 		
 		ArrayList<Produto> produtos = colProduto.consultarTodosProdutos(connector);
 		
 		connector.close();
-		return produtos;
+		return produtos.toArray(new Produto[produtos.size()]);
 	}
 	
 }

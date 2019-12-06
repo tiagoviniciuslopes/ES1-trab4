@@ -54,17 +54,19 @@ public class ConsultarProduto extends HttpServlet {
 	    
 	    PrintWriter out = response.getWriter();
 	    out.print("<br>");
-	    out.print(p.getCodBarras());
+	    out.print("Codigo de barras: " + p.getCodBarras());
 	    out.print("<br>");
-	    out.print(p.getNomeProduto());
+	    out.print("Nome do produto: " +p.getNomeProduto());
 	    out.print("<br>");
-	    out.print(p.getQuantidadeEstoque());
+	    out.print("Quantidade em estoque: " + p.getQuantidadeEstoque());
 	    out.print("<br>");
-	    out.print(p.getFornecedor().getNomeCompleto());
+	    out.print("Nome fornecedor: " + p.getFornecedor().getNomeCompleto());
 	    out.print("<br>");
-	    out.print(p.getPrecoCustoAtual());
+	    out.print("CNPJ fornecedor: " + p.getFornecedor().getCnpj().getNumeroDoc());
 	    out.print("<br>");
-	    out.print(p.getPrecoVendaAtual());
+	    out.print("Preco custo atual: " + p.getPrecoCustoAtual());
+	    out.print("<br>");
+	    out.print("Preco venda atual: " + p.getPrecoVendaAtual());
 	}
 
 	/**

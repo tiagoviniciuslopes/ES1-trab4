@@ -1,10 +1,10 @@
 package estoque;
 
-
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.URL;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,21 +14,23 @@ import javax.servlet.http.HttpServletResponse;
 import javax.xml.namespace.QName;
 import javax.xml.ws.Service;
 
+import unioeste.geral.common.bo.CNPJ;
+import unioeste.geral.estoque.bo.Fornecedor;
 import unioeste.geral.estoque.bo.ItemCompra;
-import unioeste.geral.estoque.bo.ItemNota;
 import unioeste.geral.estoque.bo.NotaCompra;
+import unioeste.geral.estoque.bo.Produto;
 
 /**
- * Servlet implementation class ConsultarNota
+ * Servlet implementation class RegistrarCompra
  */
-@WebServlet("/consultas/ConsultarNota")
-public class ConsultarNota extends HttpServlet {
+@WebServlet("/cadastros/RegistrarCompra")
+public class RegistrarCompra extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ConsultarNota() {
+    public RegistrarCompra() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -45,32 +47,45 @@ public class ConsultarNota extends HttpServlet {
 	    Service ws = Service.create(url, qname);
 	    EstoqueInterface estoque = ws.getPort(qPortName,EstoqueInterface.class);
 	    
+	    int quantidadeProdutos = Integer.parseInt(request.getParameter("quantidadeProdutosTotal"));
+	    ArrayList<ItemCompra> itemCompra = new ArrayList<ItemCompra>();
+	    
+	    
+	    //02863526000120
+	    for(int i = 1; i<=quantidadeProdutos; i++) {
+	    	Produto p = new Produto();
+	    	ItemCompra ic = new ItemCompra();
+	    	p.setIdProduto(Integer.parseInt(request.getParameter("idproduto"+i)));
+	    	ic.setProduto(p);
+	    	ic.setPrecoTotal(Float.parseFloat(request.getParameter("total"+i)));
+	    	ic.setPrecoUnitario(Float.parseFloat(request.getParameter("valorunitario"+i)));
+	    	ic.setQuantidade(Integer.parseInt(request.getParameter("quantidade"+i)));
+	    	
+	    	itemCompra.add(ic);
+	    	
+	    }
+	    
 	    NotaCompra nc = new NotaCompra();
-	    nc.setIdNota(Integer.parseInt(request.getParameter("codigo")));
+	    nc.setItemNota(itemCompra.toArray(new ItemCompra[itemCompra.size()]));
+	    nc.setDataNota(request.getParameter("data"));
+	    nc.setDescontoTotal(Float.parseFloat(request.getParameter("descontototal")));
+	    Fornecedor fornecedor = new Fornecedor();
+	    CNPJ cnpj = new CNPJ();
+	    cnpj.setNumeroDoc(request.getParameter("cnpj"));
+	    fornecedor.setCnpj(cnpj);
+	    nc.setFornecedor(fornecedor);
+	    nc.setTotalNota(Float.parseFloat(request.getParameter("totalnota")));
+	    nc.setValorLiquido(Float.parseFloat(request.getParameter("valorliquido")));
 	    
 	    try {
-			nc = (NotaCompra)estoque.consultarNota(nc);
-			
-			PrintWriter out = response.getWriter();
-			
-			out.print("<br><h2> ID: " + nc.getIdNota() + "</h2>");
-			out.print("<br><h2> Data nota: " + nc.getStringData() + "</h2>");
-			out.print("<br><h2> Total: " + nc.getTotalNota() + "</h2>");
-			out.print("<br><h2> Desconto: " + nc.getDescontoTotal() + "</h2>");
-			out.print("<br><h2> Total liquido: " + nc.getValorLiquido() + "</h2>");
-			out.print("<br><h2> Fornecedor: " + nc.getFornecedor().getNomeCompleto() + "</h2>");
-			out.print("<br><h2> CNPJ Fornecedor: " + nc.getFornecedor().getCnpj().getNumeroDoc() + "</h2>");
-			out.print("<br><h2> ITENS COMPRADOS: </h2>");
-			for(ItemNota ic : nc.getItemNota()) {
-				out.print("<br><h3>Produto: "+ic.getProduto().getNomeProduto()+"  |  Quantidade: "+ic.getQuantidade()+"  | Preco Unitario: "+ic.getPrecoUnitario()+"</h3>");
-			}
-			
+			nc = estoque.registrarCompra(nc);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    
-	    
+	    PrintWriter out = response.getWriter();
+	    out.print("<h1>CODIGO DA NOVA NOTA CADASTRADA: " + nc.getIdNota() + "</h1>");
 	}
 
 	/**
