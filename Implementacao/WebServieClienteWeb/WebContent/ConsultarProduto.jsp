@@ -29,7 +29,7 @@
 				</div>
 				<div class="column">
 					<div id="sb-search" class="sb-search">
-						<form action="consultas/ConsultarFornecedores">
+						<form action="consultas/ConsultarProduto">
 							<input class="sb-search-input" placeholder="Digite a informação" type="text" value="" name="search" id="search">
 							<input class="sb-search-submit" type="submit" value="">
 							<span class="sb-icon-search"></span>
