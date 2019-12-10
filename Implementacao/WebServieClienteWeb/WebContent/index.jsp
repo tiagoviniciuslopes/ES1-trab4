@@ -26,7 +26,7 @@
 					<li><a href="ConsultarProduto.jsp">Consultar produto por codigo</a></li>
 					<li>
 							<form id="my_form" action="helpers/HelperRegistrarCompra">
-								<a href="javascript:{}" onclick="document.getElementById('my_form').					submit();">Registrar compra</a><br>
+								<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Registrar compra</a><br>
 							</form>
 					</li>
 				</ul>

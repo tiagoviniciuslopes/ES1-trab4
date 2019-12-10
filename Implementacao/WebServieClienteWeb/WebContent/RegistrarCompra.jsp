@@ -181,7 +181,7 @@
 		
 		<input type="hidden" value="1" id="quantidadeProdutosTotal" name="quantidadeProdutosTotal">
 		
-		<input type="submit" value="consultar">
+		<input type="submit" value="Registrar">
 	</form>
 </body>
 </html>
