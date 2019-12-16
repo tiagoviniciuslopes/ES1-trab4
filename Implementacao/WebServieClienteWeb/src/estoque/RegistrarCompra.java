@@ -83,9 +83,11 @@ public class RegistrarCompra extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
+	    /*
 	    PrintWriter out = response.getWriter();
-	    out.print("<h1>CODIGO DA NOVA NOTA CADASTRADA: " + nc.getIdNota() + "</h1>");
+	    out.print("<h1>CODIGO DA NOVA NOTA CADASTRADA: " + nc.getIdNota() + "</h1>");*/
+		request.setAttribute("notacadastrada", nc);
+		request.getRequestDispatcher("/NotaCadastrada.jsp").forward(request, response);
 	}
 
 	/**

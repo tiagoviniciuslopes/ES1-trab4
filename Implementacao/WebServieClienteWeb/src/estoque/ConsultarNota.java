@@ -50,7 +50,7 @@ public class ConsultarNota extends HttpServlet {
 	    
 	    try {
 			nc = (NotaCompra)estoque.consultarNota(nc);
-			
+			/*
 			PrintWriter out = response.getWriter();
 			
 			out.print("<br><h2> ID: " + nc.getIdNota() + "</h2>");
@@ -64,12 +64,15 @@ public class ConsultarNota extends HttpServlet {
 			for(ItemNota ic : nc.getItemNota()) {
 				out.print("<br><h3>Produto: "+ic.getProduto().getNomeProduto()+"  |  Quantidade: "+ic.getQuantidade()+"  | Preco Unitario: "+ic.getPrecoUnitario()+"</h3>");
 			}
-			
+			*/
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	    
+		request.setAttribute("notacompra", nc);
+		request.setAttribute("itemcompra", nc.getItemNota());
+		request.getRequestDispatcher("/MostrarNotas.jsp").forward(request, response);
 	    
 	}
 

@@ -51,11 +51,13 @@ public class ConsultarFornecedores extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	    
+	    /*
 	    PrintWriter out = response.getWriter();
 	    out.print(f.getNomeCompleto());
 	    out.print(f.getCnpj().getNumeroDoc());
-	    out.print(f.getEnderecoEspecifico().getEndereco().getCidade().getUf().getPais().getNome());
+	    out.print(f.getEnderecoEspecifico().getEndereco().getCidade().getUf().getPais().getNome());*/
+		request.setAttribute("fornecedor", f);
+		request.getRequestDispatcher("/MostrarFornecedores.jsp").forward(request, response);
 	}
 
 	/**

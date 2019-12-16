@@ -28,12 +28,13 @@ public class helloworld {
 		// Start conversation with empty message.
 		MessageInput input = new MessageInput.Builder()
 				  .messageType("text")
-				  .text("por favor consulte a nota de id 10")
+				  .text("quero ganhar um livro 10")
 				  .build();
 		MessageOptions messageOptions = new MessageOptions.Builder(assistantId, sessionId).input(input).build();
 		MessageResponse response = service.message(messageOptions).execute().getResult();
 
 		// Print the output from dialog, if any. Assume uma única resposta de texto.
+		System.out.println(response);
 		System.out.println(response.getOutput().getIntents().get(0).intent());
 		System.out.println(response.getOutput().getEntities().get(0).value());
 		

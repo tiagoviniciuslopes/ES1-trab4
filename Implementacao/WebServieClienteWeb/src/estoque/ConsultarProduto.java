@@ -52,7 +52,7 @@ public class ConsultarProduto extends HttpServlet {
 			e.printStackTrace();
 		}
 	    
-	    PrintWriter out = response.getWriter();
+	   /* PrintWriter out = response.getWriter();
 	    out.print("<br>");
 	    out.print("Codigo de barras: " + p.getCodBarras());
 	    out.print("<br>");
@@ -67,6 +67,9 @@ public class ConsultarProduto extends HttpServlet {
 	    out.print("Preco custo atual: " + p.getPrecoCustoAtual());
 	    out.print("<br>");
 	    out.print("Preco venda atual: " + p.getPrecoVendaAtual());
+	    */
+		request.setAttribute("produto", p);
+		request.getRequestDispatcher("/MostrarProdutos.jsp").forward(request, response);
 	}
 
 	/**

@@ -12,7 +12,8 @@
 	<meta charset="ISO-8859-1">
 	<title>Registrar Compra</title>
 	<script src="../jquery.min.js"></script>
-	
+	<script src="${pageContext.request.contextPath}/js/registrar-compra.js"></script>
+	<link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/registrar-compra.css">
 	<script type="text/javascript">
 		var produtos = new Array();
 		var quantidadeProdutos = 1;
@@ -31,7 +32,7 @@
 					posicao++;
 				});
 				
-				itemcompra+='</select><label for="valorunitario'+quantidadeProdutos+'">Valor unitario:</label><input id="valor'+quantidadeProdutos+'" class="valorunitario" type="number" name="valorunitario'+quantidadeProdutos+'" value="230"><label for="quantidade'+quantidadeProdutos+'">Quantidade: </label><input id="quantidade'+quantidadeProdutos+'" class="quantidade" type="number" min="1" name="quantidade'+quantidadeProdutos+'" required value="0"><label for="total'+quantidadeProdutos+'">Total: </label><input id="total'+quantidadeProdutos+'" class="total" type="number" name="total'+quantidadeProdutos+'" required value="0"></div><br>';
+				itemcompra+='</select><label for="valorunitario'+quantidadeProdutos+'">Valor unitario:</label><input id="valor'+quantidadeProdutos+'" class="valorunitario" type="number" name="valorunitario'+quantidadeProdutos+'" value="230"><label for="quantidade'+quantidadeProdutos+'">Quantidade: </label><input id="quantidade'+quantidadeProdutos+'" class="quantidade" type="number" min="1" name="quantidade'+quantidadeProdutos+'" required value="0"><label for="total'+quantidadeProdutos+'">Total: </label><input id="total'+quantidadeProdutos+'" class="total" type="number" name="total'+quantidadeProdutos+'" required value="0"></div>';
 				
 				$("#produtos").append(itemcompra);
 				
@@ -136,13 +137,14 @@
 	</script>
 </head>
 <body>
-	<form action="../cadastros/RegistrarCompra">
-		
+<div class="container"> 
+	<form id ="contact"action="../cadastros/RegistrarCompra">
+		<h3>Registrar Compra</h3>
 		<label for="data">Data compra: </label>
-		<input type="date" name="data" required><br>
+		<input type="date" name="data" required>
 	
 		<label for="cnpj">CNPJ fornecedor: </label>
-		<input type="text" name="cnpj" required><br>
+		<input type="text" name="cnpj" required>
 		
 		<div id="produtos">
 			<div id ="div1" class="div">
@@ -163,25 +165,25 @@
 				<label for="total">Total: </label>
 				<input id="total1" class="total" type="number" name="total1" required value="0">
 				
-				<img id="plus" src="../plus.png"><img id="minus" src="../minus.png">
+
 			</div>
-			
-			<br>
 		</div>
-		<br>
+
 		
 		<label for="totalnota">Total nota: </label>
-		<input type="number" name="totalnota" id="totalnota" required><br>
+		<input type="number" name="totalnota" id="totalnota" required>
 		
 		<label for="descontototal">Desconto total: </label>
-		<input type="number" name="descontototal" min="0" required id="descontototal"><br>
+		<input type="number" name="descontototal" min="0" required id="descontototal">
 		
 		<label for="valorliquido">Valor liquido: </label>
-		<input type="number" name="valorliquido" required id="valorliquido"><br>
+		<input type="number" name="valorliquido" required id="valorliquido">
 		
 		<input type="hidden" value="1" id="quantidadeProdutosTotal" name="quantidadeProdutosTotal">
 		
+		<img id="plus" src="../plus.png"><img id="minus" src="../minus.png">
 		<input type="submit" value="Registrar">
 	</form>
+</div>
 </body>
 </html>

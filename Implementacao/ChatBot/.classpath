@@ -2,8 +2,8 @@
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="C:/Users/Tiago/Desktop/trabs/ES1/ES1-trab4/Implementacao/ChatBot/java-sdk-6.7.0-jar-with-dependencies.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Tiago/Desktop/trabs/ES1/ES1-trab4/Implementacao/ChatBot/ibm-watson-8.1.0-jar-with-dependencies.jar"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/MyJSON"/>
+	<classpathentry kind="lib" path="C:/Users/dimir/Documents/GitHub/ES1-trab4/Implementacao/ChatBot/ibm-watson-8.1.0-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="C:/Users/dimir/Documents/GitHub/ES1-trab4/Implementacao/ChatBot/java-sdk-6.7.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
