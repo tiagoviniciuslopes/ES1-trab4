@@ -20,15 +20,16 @@
 				<ul>
 					
 					
-					
 					<li><a href="ConsultarFornecedor.jsp">Consultar fornecedor por id</a></li>
 					<li><a href="ConsultarNota.jsp">Consultar nota por codigo</a><br></li>
 					<li><a href="ConsultarProduto.jsp">Consultar produto por codigo</a></li>
+					
 					<li>
 							<form id="my_form" action="helpers/HelperRegistrarCompra">
 								<a href="javascript:{}" onclick="document.getElementById('my_form').submit();">Registrar compra</a><br>
 							</form>
 					</li>
+					<li><a href="${pageContext.request.contextPath}/ConsultarBot.jsp">Consultar ibmBot</a></li>
 				</ul>
 			</div>
 	  

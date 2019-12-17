@@ -19,5 +19,7 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/MyJSON"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="lib" path="C:/Program Files (x86)/apache-tomcat-9.0.22/lib/jstl-1.2.jar"/>
+	<classpathentry kind="lib" path="/ChatBot/ibm-watson-8.1.0-jar-with-dependencies.jar"/>
+	<classpathentry kind="lib" path="/ChatBot/java-sdk-6.7.0-jar-with-dependencies.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

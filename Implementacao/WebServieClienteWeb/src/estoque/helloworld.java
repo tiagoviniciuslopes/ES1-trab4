@@ -1,3 +1,5 @@
+package estoque;
+
 import java.util.logging.LogManager;
 
 import com.ibm.cloud.sdk.core.security.IamAuthenticator;
@@ -10,7 +12,6 @@ import com.ibm.watson.assistant.v2.model.MessageResponse;
 import com.ibm.watson.assistant.v2.model.SessionResponse;
 
 public class helloworld {
-	
 	String intencao;
 	int valor;
 

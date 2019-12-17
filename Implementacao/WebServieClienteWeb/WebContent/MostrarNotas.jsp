@@ -27,7 +27,7 @@
 				<li><a href="${pageContext.request.contextPath}/ConsultarProduto.jsp" accesskey="2" title="">Consultar Produto</a></li>
 				<li><a href="${pageContext.request.contextPath}/ConsultarNota.jsp" accesskey="3" title="">Consultar Nota</a></li>
 				<li><a href="${pageContext.request.contextPath}/ConsultarFornecedor.jsp" accesskey="4" title="">Consultar Fornecedor</a></li>
-				<li><a href="#" accesskey="5" title="">ChatBot</a></li>
+				<li><a href="${pageContext.request.contextPath}/ConsultarBot.jsp" accesskey="5" title="">ChatBot</a></li>
 			</ul>
 		</div>
 	</div>
